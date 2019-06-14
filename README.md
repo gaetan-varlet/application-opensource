@@ -1,8 +1,11 @@
 # Exemple de projet open-source
 
-Il existe 2 projets :
+Il existe 2 projets dans ce dépôt Git :
 - **api.opensource** qui contient tout le code "métier" de l'application, qui peut fonctionner en dehors de l'Insee
 - **api.insee** qui a comme dépendance *api.opensource* et redéfinit certaines choses du projet opensource pour les besoins spécifiques de l'Insee
+
+Un projet/application qui souhaite adopter cette logique doit avoir 2 dépôts Git distinct pour les 2 projets, par exemple un dépôt public sur Github pour la partie opensource, et un dépôt interne à l'Insee sur GitLab pour la partie Insee.  
+Ici comme il s'agit d'un projet de démonstration, les 2 projets sont dans le même dépôt par soucis de simplicité pour les personnes souhaitant tester cette architecture.
 
 ## Principales différences :
 
