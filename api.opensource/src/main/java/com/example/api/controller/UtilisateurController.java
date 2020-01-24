@@ -2,6 +2,8 @@ package com.example.api.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ public class UtilisateurController {
 	private UtilisateurService utilisateurService;
 	
 	@GetMapping
+	@RolesAllowed("ADMIN_TOUCAN")
 	public List<Utilisateur> findUtilisateur() {
 		return utilisateurService.findAll();
 	}

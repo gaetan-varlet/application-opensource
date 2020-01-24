@@ -14,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -27,8 +28,9 @@ public class KeycloakConfiguration {
 	
 	@Configuration
 	@EnableWebSecurity
-	@ConditionalOnProperty(name = "keycloak.enabled", havingValue = "true", matchIfMissing = true)
+	@ConditionalOnProperty(name = "keycloak.enabled", havingValue = "true")
 	@ComponentScan(basePackageClasses = KeycloakSecurityComponents.class)
+	@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 	public static class KeycloakConfigurationAdapter extends KeycloakWebSecurityConfigurerAdapter {
 		
 		@Bean
