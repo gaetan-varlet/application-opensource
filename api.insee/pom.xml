@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-spring-boot-starter</artifactId>
-			<version>4.8.3.Final</version>
+			<version>8.0.2</version>
 		</dependency>
 		<!-- permet un redémarrage rapide du serveur quand un fichier du classpath change.
 		devtools est désactivé automatiquement quand l'application est exécutée de manière packagé (java -jar...) -->

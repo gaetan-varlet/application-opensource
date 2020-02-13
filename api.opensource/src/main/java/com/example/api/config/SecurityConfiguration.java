@@ -18,28 +18,23 @@ public class SecurityConfiguration {
     @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
     protected class SecurityConfigurationDefault extends WebSecurityConfigurerAdapter {
 
+        @Autowired
+        public void configureGlobal(AuthenticationManagerBuilder authentication) throws Exception {
+            authentication.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("ADMIN_TOUCAN")
+                    .and().withUser("pel").password("{noop}pel").roles("Utilisateurs_DEV_Pelican2");
+        }
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.
             // desactivation CSRF
-            csrf().disable().sessionManagement()
-            // use previously declared bean
-            .sessionAuthenticationStrategy(new NullAuthenticatedSessionStrategy())
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            // Demande du role CLIENTS_SPOC pour envoi
-            .and().authorizeRequests().antMatchers("/**").authenticated()
-            // Authentification basic
-            .and().httpBasic();
+            http.csrf().disable().sessionManagement()
+                    // use previously declared bean
+                    .sessionAuthenticationStrategy(new NullAuthenticatedSessionStrategy())
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                    // il faut être authentifié pour toutes les requêtes
+                    .and().authorizeRequests().antMatchers("/**").authenticated()
+                    // moe basic
+                    .and().httpBasic();
         }
-
-        @Autowired
-        public void configureGlobal(AuthenticationManagerBuilder authentication) throws Exception {
-            authentication.inMemoryAuthentication()
-            .withUser("admin").password("{noop}admin").roles("ADMIN_TOUCAN").and()
-            .withUser("pel").password("{noop}pel").roles("Utilisateurs_DEV_Pelican2");
-        }
-
     }
-
 }
