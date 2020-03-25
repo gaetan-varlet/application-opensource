@@ -33,7 +33,7 @@ public class SecurityConfiguration {
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     // il faut être authentifié pour toutes les requêtes
                     .and().authorizeRequests().antMatchers("/**").authenticated()
-                    // moe basic
+                    // mode basic
                     .and().httpBasic();
         }
     }
