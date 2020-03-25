@@ -4,7 +4,7 @@ Il existe 2 projets dans ce dépôt Git :
 - **api.opensource** qui contient tout le code "métier" de l'application, qui peut fonctionner en dehors de l'Insee
 - **api.insee** qui a comme dépendance *api.opensource* et redéfinit certaines choses du projet opensource pour les besoins spécifiques de l'Insee
 
-Un projet/application qui souhaite adopter cette logique doit avoir 2 dépôts Git distinct pour les 2 projets, par exemple un dépôt public sur Github pour la partie opensource, et un dépôt interne à l'Insee sur GitLab pour la partie Insee.  
+Un projet ou une application qui souhaite adopter cette logique doit avoir 2 dépôts Git distinct pour les 2 projets, par exemple un dépôt public sur Github pour la partie opensource, et un dépôt interne à l'Insee sur GitLab pour la partie Insee.  
 Ici comme il s'agit d'un projet de démonstration, les 2 projets sont dans le même dépôt par soucis de simplicité pour les personnes souhaitant tester cette architecture.
 
 ## Principales différences :
@@ -12,7 +12,7 @@ Ici comme il s'agit d'un projet de démonstration, les 2 projets sont dans le m�
 |                     | Open Source            | Insee                       |
 | :---:               | :---:                  | :---:                       |
 | Port d'écoute       | 8080                   | 8082                        |
-| Base de données     | h2 en mémoire          | postgre Insee               |
+| Base de données     | H2 en mémoire          | PostgreSQL à Insee          |
 | Sécurité            | Spring Security BASIC  | Keycloak BEARER             |
 | UtilisateurService  | UtilisateurServiceImpl | UtilisateurServiceImplInsee |
 
@@ -20,7 +20,7 @@ Ici comme il s'agit d'un projet de démonstration, les 2 projets sont dans le m�
 
 ### Base de données
 
-L'endpoint `/entreprise` en GET et en POST est branché sur une base de données (h2 ou postgre en fonction du projet exécuté). Le code JAVA n'est présent que dans le projet opensource. Un script d'initialisation de la base h2 en mémoire est présent dans le projet open source pour que l'application démarre avec la base h2 avec des données. Dans le projet Insee, les properties et la dépendance maven de *postgre* sont présents et surchargent la configuration du projet open source, pour pointer sur la base *postgre* de l'Insee au lieu de la base h2.
+L'endpoint `/entreprise` en GET et en POST est branché sur une base de données (H2 ou postgre en fonction du projet exécuté). Le code JAVA n'est présent que dans le projet opensource. Un script d'initialisation de la base H2 en mémoire est présent dans le projet open source pour que l'application démarre avec la base H2 avec des données. Dans le projet Insee, les properties et la dépendance maven de *PostgreSQL* sont présents et surchargent la configuration du projet open source, pour pointer sur la base *PostgreSQL* de l'Insee au lieu de la base H2.
 
 ### Redéfinition de classe pour les spécificités Insee
 
@@ -29,7 +29,7 @@ Cet exemple peut être une façon de gérer l'appel à des services interne comm
 
 ## Gestion de la sécurité applicative
 
-- L'API est sécurisée en mode BASIC avec *Spring Security* dans le projet open source (avec plusieurs id-mdp en fonction du rôle souhaité). Des rôles sont associés à des couples id-mdp en dur dans la classe `SecurityConfiguration`. Dans le projet Insee, Keycloak est utilisé en mode BEARER à la place du mode Basic.
+- L'API est sécurisée en mode BASIC avec *Spring Security* dans le projet open source, avec plusieurs couples id-mdp renseignés en dur dans la classe `SecurityConfiguration`. Chaque identifiant peut avoir un ou plusieurs rôles également renseigné. Dans le projet Insee, Keycloak est utilisé en mode BEARER à la place du mode Basic. Les rôles sont alors récupéré dans le jeton.
 - Certains endpoints sont protégés avec un rôle particulier pour y accéder avec l'annotation `@RolesAllowed("ADMIN")` dans le projet open source. Il faut alors saisir un couple id-mdp ayant ce rôle pour y avoir accès dans le projet open source (voir classe `SecurityConfiguration`). Ces endpoints sont protégés de la même manière dans le projet Insee avec les rôles présents dans le jeton Keycloak (voir classe `KeycloakConfiguration`).
 - Il est possible de récupérer l'identifiant de l'utilisateur avec l'objet Java `Principal` (voir exemple dans le code). En mode BASIC, c'est le username utilisé pour l'authentification qui est récupéré. Avec Keycloak, il est possible de choisir l'information que l'on souhaite récupérer, par exemple l'idep de l'utilisateur avec la property `keycloak.principal-attribute=preferred_username`.
 - Il est possible de tester si l'utilisateur à un rôle avec la méthode `httpServletRequest.isUserInRole("ROLE_A_TESTER")` qui retourne un booléen.
