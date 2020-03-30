@@ -1,4 +1,4 @@
-package com.example.api.model;
+package com.example.api.opensource.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

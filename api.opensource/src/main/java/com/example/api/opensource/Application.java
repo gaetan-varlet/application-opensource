@@ -1,4 +1,4 @@
-package com.example.api;
+package com.example.api.opensource;
 
 import java.security.Principal;
 import java.util.Optional;
@@ -21,8 +21,8 @@ public class Application {
 
 	@Bean
 	@Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
-	// renvoie le principal mis dans la requête par Keycloak
-	// ou un principal avec un "name" null sinon
+	// renvoie le principal mis dans la requête par la configuration de la sécurité
+	// correspond à l'username en mode BASIC, ou un principal avec un "name" null sinon
 	public Principal getPrincipal(HttpServletRequest httpRequest) {
 		return Optional.ofNullable(httpRequest.getUserPrincipal()).orElse(() -> null);
 	}

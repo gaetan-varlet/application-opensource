@@ -1,13 +1,13 @@
-package com.example.api.service;
+package com.example.api.insee.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.api.opensource.model.Utilisateur;
+import com.example.api.opensource.service.UtilisateurService;
+
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-
-import com.example.api.model.Utilisateur;
-import com.example.api.service.UtilisateurService;
 
 @Service
 @Primary
