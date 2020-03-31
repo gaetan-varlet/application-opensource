@@ -1,4 +1,4 @@
-package com.example.api;
+package fr.example.api;
 
 import java.security.Principal;
 import java.util.Optional;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.context.WebApplicationContext;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = { "fr.example", "com.example" })
 public class Application {
 
 	public static void main(String[] args) {
