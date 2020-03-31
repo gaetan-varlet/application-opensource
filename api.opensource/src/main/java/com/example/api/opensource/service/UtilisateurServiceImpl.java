@@ -1,11 +1,11 @@
-package com.example.api.service;
+package com.example.api.opensource.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import com.example.api.opensource.model.Utilisateur;
 
-import com.example.api.model.Utilisateur;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UtilisateurServiceImpl implements UtilisateurService {

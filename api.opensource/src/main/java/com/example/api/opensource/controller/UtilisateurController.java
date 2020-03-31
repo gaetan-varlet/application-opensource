@@ -1,16 +1,16 @@
-package com.example.api.controller;
+package com.example.api.opensource.controller;
 
 import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
 
+import com.example.api.opensource.model.Utilisateur;
+import com.example.api.opensource.service.UtilisateurService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.api.model.Utilisateur;
-import com.example.api.service.UtilisateurService;
 
 @RestController
 @RequestMapping("utilisateur")

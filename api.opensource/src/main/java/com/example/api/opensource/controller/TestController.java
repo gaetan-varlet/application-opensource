@@ -1,4 +1,4 @@
-package com.example.api.controller;
+package com.example.api.opensource.controller;
 
 import java.security.Principal;
 

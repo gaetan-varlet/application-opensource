@@ -1,4 +1,4 @@
-package com.example.api.config;
+package com.example.api.opensource.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
