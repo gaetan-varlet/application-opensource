@@ -1,4 +1,4 @@
-package fr.example.api.insee.config;
+package com.example.api.config;
 
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.KeycloakConfiguration;

@@ -1,4 +1,4 @@
-package com.example.api.opensource.model;
+package com.example.api.model;
 
 public class Utilisateur {
 	

@@ -7,7 +7,7 @@
 		<version>2.2.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>fr.example</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>api.insee</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api.insee</name>
@@ -32,7 +32,7 @@
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>api.opensource</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>

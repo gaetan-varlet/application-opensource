@@ -1,8 +1,8 @@
-package com.example.api.opensource.service;
+package com.example.api.service;
 
 import java.util.List;
 
-import com.example.api.opensource.model.Utilisateur;
+import com.example.api.model.Utilisateur;
 
 public interface UtilisateurService {
 	
