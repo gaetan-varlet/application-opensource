@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.context.WebApplicationContext;
 
-@SpringBootApplication(scanBasePackages = { "fr.example", "com.example" })
+@SpringBootApplication
 public class Application {
 
 	public static void main(String[] args) {
