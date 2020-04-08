@@ -1,4 +1,4 @@
-package fr.example.api;
+package com.example.api;
 
 import java.security.Principal;
 import java.util.Optional;
