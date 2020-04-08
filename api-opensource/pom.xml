@@ -60,22 +60,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
 				<executions>
-					<execution>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<phase>package</phase>
-						<configuration>
-							<classifier>app-to-import</classifier>
-						</configuration>
-					</execution>
+				  <execution>
+					<id>repackage</id>
+					<configuration>
+					  <classifier>exec</classifier>
+					</configuration>
+				  </execution>
 				</executions>
-			</plugin>
+			  </plugin>
 		</plugins>
 	</build>
 

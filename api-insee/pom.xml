@@ -33,7 +33,6 @@
 			<groupId>com.example</groupId>
 			<artifactId>api-opensource</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<classifier>app-to-import</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
