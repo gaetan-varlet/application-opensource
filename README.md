@@ -1,6 +1,6 @@
 # Exemple de projet open-source
 
-Il existe 2 projets dans ce dépôt Git :
+Il existe 2 projets construit avec Spring Boot dans ce dépôt Git :
 - **api-opensource** qui contient tout le code "métier" de l'application, qui peut fonctionner en dehors de l'Insee
 - **api-insee** qui a comme dépendance *api.opensource* et redéfinit certaines choses du projet opensource pour les besoins spécifiques de l'Insee
 
@@ -25,6 +25,7 @@ L'endpoint `/entreprise` en GET et en POST est branché sur une base de données
 ### Redéfinition de classe pour les spécificités Insee
 
 L'endpoint `/utilisateur` en GET permet d'obtenir la liste de tous les utilisateurs. Le code JAVA de l'interface est défini dans le projet open source, ainsi qu'une implémentation avec des données en dur (UtilisateurServiceImpl). Une autre implémentation est définie dans le projet Insee (UtilisateurServiceImplInsee) avec d'autres données pour montrer que cette dernière est bien utilisée dans le projet Insee comme implémentation. Afin que Spring sache qu'il doit utiliser cette implémentation dans le projet Insee, il faut ajouter l'annotation **@Primary** sur la classe de l'implémentation Insee.  
+Une autre façon de faire est d'utiliser l'annotation **@ConditionalOnSingleCandidate(UtilisateurService.class)** dans l'implémentation open source. Cette implémentation étant la seule dans le projet open source, elle sera utilisée. Dans le projet Insee, comme il existe une deuxième implémentation de l'interface UtilisateurService, celle dans le projet open source ne sera utilisée à cause de l'annotation.  
 Cet exemple peut être une façon de gérer l'appel à des services interne comme Igesa (WS pour interagir avec le LDAP) : une implémentation par défaut qui est un mock, et une implémentation Insee qui fait les requêtes HTTP vers Igesa.
 
 ### Gestion de la sécurité applicative
