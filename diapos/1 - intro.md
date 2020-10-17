@@ -4,7 +4,7 @@
 
 ## Ca veut dire quoi rendre son application opensource ?
 
-- **la préparer à la publier en public**
+- la préparer à la publier en public
 - un grand principe : la **non adhérence**
 
 ----
