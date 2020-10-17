@@ -44,7 +44,7 @@
 - par défaut, le plugin *Spring Boot Maven Plugin* utilisé pour construire le livrable permet de créer un JAR exécutable qui contient les classes compilées et toutes les bibliothèques nécessaires
 - ce JAR ne respecte pas l'organisation habituelle d'un JAR que l'on utilise en tant que bibliothèque dans un autre projet, l'utilisation de ces classes dans un autre projet ne fonctionnera pas, les classes ne seront pas trouvées par Maven à la compilation du projet utilisant cette bibliothèque
 - le problème est qu'au lieu que la hiérarchie des dossiers contenant le code source soit à la racine du JAR, elle est dans un dossier */BOOT-INF/classes*
-- ce JAR est généré en utilisant la configuration du plugin par défaut en lançant la commande `mvn clean install`. Il faut ensuite lancer la commande JAVA `java -jar NOM-JAR.jar` pour lancer l'exécutable.
+- ce JAR est généré en utilisant la configuration du plugin par défaut en lançant la commande `mvn clean install`. Il faut ensuite lancer la commande `java -jar NOM-JAR.jar` pour lancer l'exécutable
 
 ```xml
 <build>
