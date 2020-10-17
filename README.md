@@ -1,3 +1,5 @@
+:arrow_forward: [Diaporama](https://gaetan-varlet.github.io/projet-java-opencore/)
+
 # Exemple de projet open-source
 
 Il existe 2 projets construit avec Spring Boot dans ce dépôt Git :
