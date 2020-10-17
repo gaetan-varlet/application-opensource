@@ -1,4 +1,4 @@
-:arrow_forward: [Diaporama](https://gaetan-varlet.github.io/projet-java-opencore/)
+:arrow_forward: [Diaporama](https://gaetan-varlet.github.io/application-opensource/)
 
 # Exemple de projet open-source
 
