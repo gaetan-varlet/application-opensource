@@ -4,7 +4,7 @@
 
 ## Ca veut dire quoi rendre son application opensource ?
 
-- la préparer à la publier en public
+- la préparer à la publier sur un dépôt public
 - un grand principe : la **non adhérence**
 
 ----
@@ -28,7 +28,7 @@ Parce qu'on est en 2020 !
 ## La non adhérence
 
 - ne pas avoir d'adhérence vers des composants Insee :
-    - base de données
-    - service d'authentification
-    - autres services comme service de gestion des contacts, d'envoi de mails...
+    - base de données au CEI
+    - service d'authentification interne
+    - autres services internes comme service de gestion des contacts, d'envoi de mails...
 - avoir une interface pour les services avec une implémentation par défaut non Insee, et une autre implémentation spéficique à l'Insee
