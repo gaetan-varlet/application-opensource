@@ -1,7 +1,10 @@
 ## Introduction
 
-**Ca veut dire quoi rendre son application opensource ?**
-- la préparer à la publier en public
+----
+
+## Ca veut dire quoi rendre son application opensource ?
+
+La préparer à la publier en public
 
 **Pourquoi ?**
 - amélioration de la qualité du code
@@ -10,3 +13,7 @@
 - contraintes légales
 
 Un grand principe : la **non adhérence**
+
+----
+
+## La non adhérence
