@@ -1,10 +1,10 @@
-## Introduction
+# Introduction
 
 ----
 
-## Ca veut dire quoi rendre son application opensource ?
+## Ca veut dire quoi rendre son application opensource ?
 
-La préparer à la publier en public
+**La préparer à la publier en public**
 
 **Pourquoi ?**
 - amélioration de la qualité du code
@@ -16,4 +16,10 @@ Un grand principe : la **non adhérence**
 
 ----
 
-## La non adhérence
+## La non adhérence
+
+- ne pas avoir d'adhérence vers des composants Insee :
+    - base de données
+    - service d'authentification
+    - autres services comme service de gestion des contacts, d'envoi de mails...
+- avoir une interface pour les services avec une implémentation par défaut non Insee, et une autre implémentation spéficique à l'Insee
