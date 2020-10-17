@@ -5,12 +5,23 @@
 ## Ca veut dire quoi rendre son application opensource ?
 
 - **la préparer à la publier en public**
-- **pourquoi ?**
+- un grand principe : la **non adhérence**
+
+----
+
+## Pourquoi ?
+
+Parce qu'on est en 2020 !
+
+----
+
+## Pourquoi ?
+
+- portabilité, interopérabilité, reproductibilité 
     - amélioration de la qualité du code
     - facilité du développement et de la maintenance
     - exécution en externe pour développement sur PC perso en télétravail, pour une prestation externe
-    - contraintes légales
-- un grand principe : la **non adhérence**
+- contraintes légales
 
 ----
 
