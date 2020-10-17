@@ -20,6 +20,3 @@ Un projet ou une application qui souhaite adopter cette logique doit avoir 2 dé
 | Base de données     | H2 en mémoire          | PostgreSQL à Insee          |
 | Sécurité            | Spring Security BASIC  | Keycloak BEARER             |
 | UtilisateurService  | UtilisateurServiceImpl | UtilisateurServiceImplInsee |
-
-----
-
