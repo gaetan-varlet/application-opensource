@@ -2,6 +2,13 @@
 
 ----
 
+## Création de services
+
+- service de création et de récupération d'entreprises (en base de données)
+- service de récupératon d'utilisateurs (en mémoire dans l'application)
+
+----
+
 ## Base de données
 
 - l'endpoint `/entreprise` en GET et en POST est branché sur une base de données (H2 ou postgre en fonction du projet exécuté)
