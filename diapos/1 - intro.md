@@ -21,7 +21,7 @@ Parce qu'on est en 2020 !
 ## Pourquoi ?
 
 - portabilité, interopérabilité, reproductibilité
-    - exécution en externe pour développement sur PC perso en télétravail, pour une prestation externe
+    - exécution en externe pour développement hors réseau Insee (PC perso en télétravail, prestation externe...)
     - amélioration de la qualité du code
     - facilité du développement et de la maintenance
 - contraintes légales
