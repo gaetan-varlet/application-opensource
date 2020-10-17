@@ -17,10 +17,10 @@ Parce qu'on est en 2020 !
 
 ## Pourquoi ?
 
-- portabilité, interopérabilité, reproductibilité 
+- portabilité, interopérabilité, reproductibilité
+    - exécution en externe pour développement sur PC perso en télétravail, pour une prestation externe
     - amélioration de la qualité du code
     - facilité du développement et de la maintenance
-    - exécution en externe pour développement sur PC perso en télétravail, pour une prestation externe
 - contraintes légales
 
 ----
