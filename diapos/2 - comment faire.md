@@ -6,7 +6,7 @@
 
 - création d'une API Java avec Spring Boot
 - connexion à une BDD Postgre en local
-- possibilité de surcharger les properties au démarrage de l'application pour démarrer vers une BDD au CEI
+- possibilité de surcharger les properties au démarrage de l'application pour utiliser une BDD au CEI
 
 ----
 
@@ -19,9 +19,11 @@
 
 ## Utilisation d'un service propriétaire
    
-- utilisation du service propriétaire de gestion des contacts
+utilisation du service propriétaire de gestion des contacts
    - pas de possibilité de l'utiliser à l'extérieur de l'Insee
-   - création d'une interface et de 2 implémentations (une par défaut qui simule l'utilisation d'un service externe avec la gestion en mémoire d'une liste de contacts, une autre qui utilise le service propriétaire)
+   - création d'une interface et de deux implémentations
+       - une par défaut qui simule l'utilisation d'un service externe avec la gestion en mémoire d'une liste de contacts
+       - une autre qui utilise le service propriétaire
 
 ----
 
@@ -34,16 +36,15 @@
 
 ## Réorganisation du code
 
-- découpage en 2 projets dans 2 dépôts Git distincts :
-    - api-opensource avec implémentation par défaut
-    - api-insee avec implémentation utilisant le composant propriétaire
-- *api-opensource* devient une dépendance de *api-insee*
+découpage en 2 projets dans 2 dépôts Git distincts :
+- *api-opensource* avec tout le code sauf le code spécifique Insee
+- *api-insee* avec *api-opensource* comme dépendance + le code spécifique Insee
 
 ----
 
 ## Simplification du projet opensource
 
-- remplacement de Postgre par base H2
+- remplacement de PostgreSQL par base H2
     - création en mémoire au démarrage de l'API
     - code sans adhérence à une BDD particulière
 - utilisation de Spring Security en mode BASIC à la place de Keycloak pour l'authenficaton et les autorisations
@@ -55,7 +56,7 @@
 |                     | Open Source            | Insee                       |
 | :---:               | :---:                  | :---:                       |
 | Port d'écoute       | 8080                   | 8082                        |
-| Base de données     | H2 en mémoire          | PostgreSQL à Insee          |
+| Base de données     | H2 en mémoire          | PostgreSQL à l'Insee        |
 | Sécurité            | Spring Security BASIC  | Keycloak BEARER             |
 | UtilisateurService  | UtilisateurServiceImpl | UtilisateurServiceImplInsee |
 
