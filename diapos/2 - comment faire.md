@@ -1,18 +1,56 @@
-# Comment faire ?
+# Comment on fait ?
 
 ----
 
-## Organisation
+## Création d'un projet avec connexion à une BDD
 
-Création de 2 projets Java distincts (API) construits avec Spring Boot :
-- **api-opensource** qui contient tout le code "métier" de l'application, qui peut fonctionner en dehors de l'Insee
-- **api-insee** qui a comme dépendance *api.opensource* et redéfinit certaines choses du projet opensource pour les besoins spécifiques de l'Insee
-
-Un projet ou une application qui souhaite adopter cette logique doit avoir 2 dépôts Git distinct pour les 2 projets, par exemple un dépôt public sur Github pour la partie opensource, et un dépôt interne à l'Insee sur GitLab pour la partie Insee.
+- création d'une API Java avec Spring Boot
+- connexion à une BDD Postgre en local
+- possibilité de surcharger les properties au démarrage de l'application pour démarrer vers une BDD au CEI
 
 ----
 
-## Principales différences
+## Ajout d'une couche d'authentification
+
+- utilisation de Keycloak pour gérer l'authentification et les autorisations
+- possibilité d'utiliser un Keycloak en local et de surcharger les properties au démarrage de l'application pour utiliser le Keycloak de l'Insee
+
+----
+
+## Utilisation d'un service propriétaire
+   
+- utilisation du service propriétaire de gestion des contacts
+   - pas de possibilité de l'utiliser à l'extérieur de l'Insee
+   - création d'une interface et de 2 implémentations (une par défaut qui simule l'utilisation d'un service externe avec la gestion en mémoire d'une liste de contacts, une autre qui utilise le service propriétaire)
+
+----
+
+## Bilan d'étape
+
+- avec un projet organisé de cette façon, il est possible d'utiliser l'application en externe mais ça reste un peu compliqué car il faut démarrer un Postgre et un Keycloak sur son poste pour que l'appli fonctionne
+- le code n'est pas totalement propre car l'appel à des services internes y est présent
+
+----
+
+## Réorganisation du code
+
+- découpage en 2 projets dans 2 dépôts Git distincts :
+    - api-opensource avec implémentation par défaut
+    - api-insee avec implémentation utilisant le composant propriétaire
+- *api-opensource* devient une dépendance de *api-insee*
+
+----
+
+## Simplification du projet opensource
+
+- remplacement de Postgre par base H2
+    - création en mémoire au démarrage de l'API
+    - code sans adhérence à une BDD particulière
+- utilisation de Spring Security en mode BASIC à la place de Keycloak pour l'authenficaton et les autorisations
+
+----
+
+## Bilan final
 
 |                     | Open Source            | Insee                       |
 | :---:               | :---:                  | :---:                       |
@@ -20,3 +58,10 @@ Un projet ou une application qui souhaite adopter cette logique doit avoir 2 dé
 | Base de données     | H2 en mémoire          | PostgreSQL à Insee          |
 | Sécurité            | Spring Security BASIC  | Keycloak BEARER             |
 | UtilisateurService  | UtilisateurServiceImpl | UtilisateurServiceImplInsee |
+
+----
+
+## Déploiement
+
+- déploiement d'*api-opensource* en tant que bibliothèque Java sur le nexus de l'Insee (privé) ou sur Maven Central (public) avec la commande **mvn deploy**
+- création du livrable **api-insee** qui va aller chercher la bibliothèque **api-opensource** sur le dépôt distant
