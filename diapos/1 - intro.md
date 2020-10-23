@@ -5,10 +5,14 @@
 ## Ca veut dire quoi rendre son application opensource ?
 
 - la préparer à la publier sur un dépôt public
-- un grand principe : la **non adhérence** à des composants Insee :
-    - base de données au CEI
-    - service d'authentification interne
-    - autres services internes comme service de gestion des contacts, d'envoi de mails...
+- un grand principe : la **non adhérence** à des composants Insee
+    - composants libres
+        - base de données au CEI
+        - service d'authentification interne
+    - composants propriétaires
+        - service de gestion des contacts
+        - service d'envoi de mails
+        - InseeConfig
 
 ----
 
