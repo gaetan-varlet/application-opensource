@@ -5,7 +5,7 @@
 ## Création de services
 
 - service de création et de récupération d'entreprises (en base de données)
-- service de récupératon d'utilisateurs (en mémoire dans l'application)
+- service de récupération d'utilisateurs (en mémoire dans l'application)
 
 ----
 
