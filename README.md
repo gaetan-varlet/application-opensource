@@ -20,7 +20,7 @@ Ici comme il s'agit d'un projet de démonstration, les 2 projets sont dans le m�
 
 ## Description plus détaillée
 
-## Création de services
+## Création de services
 
 - service de création et de récupération d'entreprises (en base de données)
 - service de récupératon d'utilisateurs (en mémoire dans l'application)
