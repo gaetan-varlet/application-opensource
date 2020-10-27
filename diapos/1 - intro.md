@@ -28,4 +28,4 @@ Parce qu'on est en 2020 !
     - exécution en externe pour développement hors réseau Insee (PC perso en télétravail, prestation externe...)
     - amélioration de la qualité du code
     - facilité du développement et de la maintenance
-- contraintes légales : loi pour une République numérique de 2016
+- contraintes légales : loi pour une République numérique de 2016, publication en opensource par défaut
