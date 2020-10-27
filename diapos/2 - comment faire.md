@@ -1,4 +1,4 @@
-# Comment on fait ?
+# Cheminement
 
 ----
 
@@ -36,18 +36,18 @@ utilisation du service propriétaire de gestion des contacts
 
 ## Réorganisation du code
 
-découpage en 2 projets dans 2 dépôts Git distincts :
+découpage en 2 projets :
 - *api-opensource* avec tout le code sauf le code spécifique Insee
 - *api-insee* avec *api-opensource* comme dépendance + le code spécifique Insee
 
 ----
 
-## Simplification du projet opensource
+## Simplification du démarrage du projet opensource
 
 - remplacement de PostgreSQL par base H2
     - création en mémoire au démarrage de l'API
     - code sans adhérence à une BDD particulière
-- utilisation de Spring Security en mode BASIC à la place de Keycloak pour l'authenficaton et les autorisations
+- utilisation de Spring Security en mode BASIC à la place de Keycloak pour l'authentification et les autorisations
 
 ----
 
