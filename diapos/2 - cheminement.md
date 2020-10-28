@@ -54,12 +54,16 @@ découpage en 2 projets :
 - *api-opensource* avec tout le code sauf le code spécifique Insee
 - *api-insee* avec *api-opensource* comme dépendance + le code spécifique Insee
 
+exemple sur la gestion des contacts :
+- projet opensource : interface + implémentation avec des données en dur
+- projet Insee : autre implémentation pouvant utiliser des composants propriétaires
+
 ----
 
 ## Simplification du démarrage du projet opensource
 
 - remplacement de PostgreSQL par base H2
-    - création en mémoire au démarrage de l'API
+    - création en mémoire au démarrage de l'API avec script d'initialisation
     - code sans adhérence à une BDD particulière
 - utilisation de Spring Security en mode BASIC à la place de Keycloak pour l'authentification et les autorisations
 
