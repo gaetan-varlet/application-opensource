@@ -31,6 +31,12 @@ utilisation du service propriétaire de gestion des contacts
 
 ----
 
+## Architecture
+
+![Schéma de l'architecture](diapos/images/archi1.png "Schéma de l'architecture")
+
+----
+
 ## Bilan d'étape
 
 - le code n'est pas totalement propre car l'appel à des services internes y est présent
@@ -75,7 +81,7 @@ découpage en 2 projets :
 
 ## Architecture
 
-![Schéma de l'architecture](diapos/images/archi.png "Schéma de l'architecture")
+![Schéma de l'architecture](diapos/images/archi2.png "Schéma de l'architecture")
 
 ----
 
