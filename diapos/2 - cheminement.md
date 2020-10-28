@@ -75,7 +75,7 @@ découpage en 2 projets :
 
 ## Architecture
 
-![Schéma de l'architecture](./archi.png "Schéma de l'architecture")
+![Schéma de l'architecture](archi.png "Schéma de l'architecture")
 
 ----
 
