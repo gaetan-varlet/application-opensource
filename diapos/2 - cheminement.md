@@ -2,6 +2,10 @@
 
 ----
 
+## Etape 1 : avoir une application qui peut fonctionner en dehors de l'Insee
+
+----
+
 ## Création d'un projet avec connexion à une BDD
 
 - création d'une API Java avec Spring Boot
@@ -29,8 +33,12 @@ utilisation du service propriétaire de gestion des contacts
 
 ## Bilan d'étape
 
-- avec un projet organisé de cette façon, il est possible d'utiliser l'application en externe mais ça reste un peu compliqué car il faut démarrer un Postgre et un Keycloak sur son poste pour que l'appli fonctionne
 - le code n'est pas totalement propre car l'appel à des services internes y est présent
+- avec un projet organisé de cette façon, il est possible d'utiliser l'application en externe mais ça reste un peu compliqué car il faut démarrer un Postgre et un Keycloak sur son poste pour que l'appli fonctionne
+
+----
+
+## Etape 2 : avoir une application propre et qui démarre sans rien installer
 
 ----
 
@@ -51,6 +59,29 @@ découpage en 2 projets :
 
 ----
 
+## Gestion de la sécurité applicative
+
+- mode d'authentification
+    - mode BASIC avec *Spring Security*
+    - mode BEARER avec *Keycloak*
+- gestion des rôles
+    - plusieurs couples id-mdp renseignés en dur associés à des rôles
+    - rôles récupérés dans le jeton
+- identification de l'utilisateur
+    - via l'id en BASIC
+    - via l'idep dans le jeton en BEARER
+
+----
+
+## Déploiement
+
+- déploiement d'*api-opensource* en tant que bibliothèque Java
+    - sur le nexus de l'Insee (privé) ou sur Maven Central (public) avec la commande **mvn deploy**
+    - configuration de *Spring Boot Maven Plugin* pour produire un JAR utilisable en tant que bibliothèque à la place du JAR exécutable
+- création du livrable **api-insee** qui va aller chercher la bibliothèque **api-opensource** sur le dépôt distant
+
+----
+
 ## Bilan final
 
 |                     | Open Source            | Insee                       |
@@ -59,10 +90,3 @@ découpage en 2 projets :
 | Base de données     | H2 en mémoire          | PostgreSQL à l'Insee        |
 | Sécurité            | Spring Security BASIC  | Keycloak BEARER             |
 | UtilisateurService  | UtilisateurServiceImpl | UtilisateurServiceImplInsee |
-
-----
-
-## Déploiement
-
-- déploiement d'*api-opensource* en tant que bibliothèque Java sur le nexus de l'Insee (privé) ou sur Maven Central (public) avec la commande **mvn deploy**
-- création du livrable **api-insee** qui va aller chercher la bibliothèque **api-opensource** sur le dépôt distant
