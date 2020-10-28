@@ -73,6 +73,12 @@ découpage en 2 projets :
 
 ----
 
+## Architecture
+
+![Schéma de l'architecture](./archi.png "Schéma de l'architecture")
+
+----
+
 ## Déploiement
 
 - déploiement d'*api-opensource* en tant que bibliothèque Java
