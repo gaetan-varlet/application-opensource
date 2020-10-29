@@ -63,8 +63,8 @@ exemple sur la gestion des contacts :
 ## Simplification du démarrage du projet opensource
 
 - remplacement de PostgreSQL par base H2
-    - création en mémoire au démarrage de l'API avec script d'initialisation
-    - code sans adhérence à une BDD particulière
+    - création en mémoire au démarrage de l'API avec script d'initialisation avec des données de test
+    - code sans adhérence à un SGBD particulier
 - utilisation de Spring Security en mode BASIC à la place de Keycloak pour l'authentification et les autorisations
 
 ----
@@ -75,7 +75,7 @@ exemple sur la gestion des contacts :
     - mode BASIC avec *Spring Security*
     - mode BEARER avec *Keycloak*
 - gestion des rôles
-    - plusieurs couples id-mdp renseignés en dur associés à des rôles
+    - plusieurs couples id-mdp de test renseignés en dur associés à des rôles
     - rôles récupérés dans le jeton
 - identification de l'utilisateur
     - via l'id en BASIC
